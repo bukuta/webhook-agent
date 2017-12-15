@@ -1,0 +1,11 @@
+{
+  "name": "webhook-agent",
+  "version": "1.0.0",
+  "description": "webhook-agent which run in server, and receives webhooks from github/gitlab platform, manages hooks and actions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bukuta",
+  "license": "ISC"
+}
