@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,17 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  'get /api/v1/users': 'UserController.fetch',
+  'post /api/v1/users': 'UserController.create',
+  'get /api/v1/users/:userId': 'UserController.fetchOne',
+  'patch /api/v1/users/:userId': 'UserController.update',
+  'delete /api/v1/users/:userId': 'UserController.destroy',
+
+
+  //'get /api/v1/projects': 'ProjectController.fetch',
+  //'post /api/v1/projects': 'ProjectController.create',
+  //'get /api/v1/projects/:projectId': 'ProjectController.fetchOne',
+  //'patch /api/v1/projects/:projectId': 'ProjectController.update',
+  //'delete /api/v1/projects/:projectId': 'ProjectController.destroy',
 
 };

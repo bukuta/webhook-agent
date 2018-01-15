@@ -9,13 +9,35 @@ module.exports = {
 
   attributes: {
 
-    id : { type: 'string' },
+    id: {
+      type: 'integer',
+      autoIncrement: true,
+      unique: true,
+      primaryKey: true,
+    },
+    name: {
+      type: 'text',
+      unique: true,
+    },
+    account: {
+      type: 'text',
+      unique: true,
+    },
+    password: {
+      type: 'text',
+    },
 
-    creator : { type: 'string' },
 
-    createAt : { type: 'string' },
+    creator: {
+      type: 'integer'
+    },
 
-    updateAt : { type: 'string' }
+    createAt: {
+      type: 'datetime'
+    },
+
+    updateAt: {
+      type: 'datetime'
+    }
   }
 };
-
