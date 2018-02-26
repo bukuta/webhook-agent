@@ -1,8 +1,6 @@
 /**
- * ProjectConfig.js
+ * Authorize.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
@@ -13,20 +11,31 @@ module.exports = {
       type: 'string'
     },
 
-    // 仓库ID
-    project:{
-      type: 'string',
-    },
 
     // 认证方式
     authorizeType:{
       type: 'enum',// ssh/http
     },
 
-    // 认证配置
-    authorize:{
+    // 账号
+    account:{
       type: 'string',
-    }
+    },
+
+    // 密码
+    password:{
+      type: 'string',
+    },
+
+    // 公钥内容 1kb
+    sshPublicKey:{
+      type: 'string',
+    },
+
+    // 私钥内容, 几kb
+    sshPrivateKey:{
+      type: 'string',
+    },
 
 
     creator: {
@@ -42,3 +51,4 @@ module.exports = {
     }
   }
 };
+

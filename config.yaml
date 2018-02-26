@@ -1,0 +1,12 @@
+#仓库下载位置
+gitbaseDir: /data/wci/gitbase
+#执行action/hooks位置
+workDir: /data/wci/workspace
+# ssh 公钥、私钥文件名 生成规则: 用户名-项目名
+ssh:
+  dir:
+    /data/wci/ssh
+  pathTemplate:
+    - user.name
+    - project.name
+

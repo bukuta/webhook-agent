@@ -9,13 +9,20 @@ module.exports = {
 
   attributes: {
 
-    id : { type: 'string' },
+    id: {
+      type: 'string'
+    },
 
-    creator : { type: 'string' },
+    creator: {
+      type: 'string'
+    },
 
-    createAt : { type: 'string' },
+    createAt: {
+      type: 'string'
+    },
 
-    updateAt : { type: 'string' }
+    updateAt: {
+      type: 'string'
+    }
   }
 };
-
