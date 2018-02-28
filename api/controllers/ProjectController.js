@@ -6,6 +6,15 @@
  */
 
 module.exports = {
-	
+  fetch(req,res){
+  },
+  create(req,res){
+  },
+  fetchOne(req,res){
+  },
+  update(req,res){
+  },
+  destory(req,res){
+  },
 };
 

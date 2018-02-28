@@ -26,7 +26,7 @@ module.exports = {
     // 认证配置
     authorize:{
       type: 'string',
-    }
+    },
 
 
     creator: {
