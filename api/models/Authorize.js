@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Authorize.js
  *
@@ -11,32 +13,30 @@ module.exports = {
       type: 'string'
     },
 
-
     // 认证方式
-    authorizeType:{
-      type: 'enum',// ssh/http
+    authorizeType: {
+      type: 'enum' // ssh/http
     },
 
     // 账号
-    account:{
-      type: 'string',
+    account: {
+      type: 'string'
     },
 
     // 密码
-    password:{
-      type: 'string',
+    password: {
+      type: 'string'
     },
 
     // 公钥内容 1kb
-    sshPublicKey:{
-      type: 'string',
+    sshPublicKey: {
+      type: 'string'
     },
 
     // 私钥内容, 几kb
-    sshPrivateKey:{
-      type: 'string',
+    sshPrivateKey: {
+      type: 'string'
     },
-
 
     creator: {
       type: 'string'
@@ -51,4 +51,3 @@ module.exports = {
     }
   }
 };
-

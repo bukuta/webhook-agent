@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Project.js
  *
@@ -15,37 +17,37 @@ module.exports = {
 
     // 仓库名称
     name: {
-      type: 'string',
+      type: 'string'
     },
 
     // 仓库地址
     url: {
-      type: 'string',
+      type: 'string'
     },
 
     // 仓库分支数
-    branches:{
-      type: 'integer',
+    branches: {
+      type: 'integer'
     },
 
     // 最近更新的分支名
-    lastBranch:{
-      type: 'string',
+    lastBranch: {
+      type: 'string'
     },
 
     // 最近更新的commitid
-    lastCommit:{
-      type: 'string',
+    lastCommit: {
+      type: 'string'
     },
 
     // tags 数
     tags: {
-      type: 'integer',
+      type: 'integer'
     },
 
     // 最近打的tag
-    lastTag:{
-      type: 'string',
+    lastTag: {
+      type: 'string'
     },
 
     // 添加者

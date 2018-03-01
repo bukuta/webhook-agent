@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * User.js
  *
@@ -13,20 +15,19 @@ module.exports = {
       type: 'integer',
       autoIncrement: true,
       unique: true,
-      primaryKey: true,
+      primaryKey: true
     },
     name: {
       type: 'text',
-      unique: true,
+      unique: true
     },
     account: {
       type: 'text',
-      unique: true,
+      unique: true
     },
     password: {
-      type: 'text',
+      type: 'text'
     },
-
 
     creator: {
       type: 'integer'

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * ProjectConfig.js
  *
@@ -14,20 +16,19 @@ module.exports = {
     },
 
     // 仓库ID
-    project:{
-      type: 'string',
+    project: {
+      type: 'string'
     },
 
     // 认证方式
-    authorizeType:{
-      type: 'enum',// ssh/http
+    authorizeType: {
+      type: 'enum' // ssh/http
     },
 
     // 认证配置
-    authorize:{
-      type: 'string',
+    authorize: {
+      type: 'string'
     },
-
 
     creator: {
       type: 'string'

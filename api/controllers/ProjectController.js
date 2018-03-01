@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * ProjectController
  *
@@ -6,15 +8,9 @@
  */
 
 module.exports = {
-  fetch(req,res){
-  },
-  create(req,res){
-  },
-  fetchOne(req,res){
-  },
-  update(req,res){
-  },
-  destory(req,res){
-  },
+  fetch: function fetch(req, res) {},
+  create: function create(req, res) {},
+  fetchOne: function fetchOne(req, res) {},
+  update: function update(req, res) {},
+  destory: function destory(req, res) {}
 };
-
