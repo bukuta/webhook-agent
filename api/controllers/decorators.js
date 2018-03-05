@@ -33,7 +33,7 @@ function authorize(role) {
                 return wait(1000);
 
               case 3:
-                if (!(Math.random() < 0.2)) {
+                if (!(Math.random() < 0.0)) {
                   _context.next = 8;
                   break;
                 }
@@ -215,29 +215,33 @@ function findResource(Model) {
 }
 
 // 拦截
-function checkParams(rules) {
-  debug('checkParams', rules);
+function createResource(Model) {
+  debug('createResource', Model);
   return function decorator(target, name, descriptor) {
     var fun = descriptor.value;
     descriptor.value = function () {
       var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {
-        var _args5 = arguments;
+        var rs,
+            _args5 = arguments;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                debug('checkParams.run', name, '');
-                //if (req.body.id < 5) {
-                //throw new Error('params.id.invalid ' + req.body.id);
-                //}
-                debug('checkParams.pass', req.id);
-                _context5.next = 4;
+                debug('createResource.run', name, '');
+                _context5.next = 3;
+                return Model.find();
+
+              case 3:
+                rs = _context5.sent;
+
+                req._item = rs;
+                _context5.next = 7;
                 return fun.apply(this, [].concat(Array.prototype.slice.call(_args5)));
 
-              case 4:
+              case 7:
                 return _context5.abrupt('return', _context5.sent);
 
-              case 5:
+              case 8:
               case 'end':
                 return _context5.stop();
             }
@@ -247,6 +251,121 @@ function checkParams(rules) {
 
       function newValue(_x9, _x10) {
         return _ref5.apply(this, arguments);
+      }
+
+      return newValue;
+    }();
+    return descriptor;
+  };
+}
+function getValue(req, rule) {
+  var value = void 0;
+  var name = rule.name;
+  var where = rule.in;
+  switch (where) {
+    case 'path':
+      debug('params', req.params);
+      value = req.params[name];
+      break;
+    case 'query':
+      debug('query', req.query);
+      value = req.query[name];
+      break;
+    case 'body':
+      debug('body', req.body);
+      value = req.body;
+      break;
+    default:
+      debug('no place to find ', name);
+      break;
+  }
+  return value;
+}
+
+function validate(value, rule) {
+  var type = rule.type;
+  switch (type) {
+    case 'integer':
+      value = parseInt(value, 10);
+      break;
+  }
+}
+
+// 拦截
+function checkParams(rules) {
+  debug('checkParams', rules);
+  return function decorator(target, name, descriptor) {
+    var fun = descriptor.value;
+    descriptor.value = function () {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(req, res) {
+        var _args6 = arguments;
+        return regeneratorRuntime.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                debug('checkParams.run', name, rules);
+                rules.map(function (rule) {
+                  var value = getValue(req, rule);
+                  debug('checkParams', rule.name, value, rule);
+                  if (rule.required) {
+                    if (!value) {
+                      throw Error(rule.name + ' required in request');
+                    }
+                  } else {}
+                });
+                debug('checkParams.pass');
+                _context6.next = 5;
+                return fun.apply(this, [].concat(Array.prototype.slice.call(_args6)));
+
+              case 5:
+                return _context6.abrupt('return', _context6.sent);
+
+              case 6:
+              case 'end':
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function newValue(_x11, _x12) {
+        return _ref6.apply(this, arguments);
+      }
+
+      return newValue;
+    }();
+    return descriptor;
+  };
+}
+
+// 路由映射 TODO
+function mapping(method, path) {
+  debug('mapping', method, path);
+  return function decorator(target, name, descriptor) {
+    var fun = descriptor.value;
+    descriptor.value = function () {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(req, res) {
+        var _args7 = arguments;
+        return regeneratorRuntime.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.next = 2;
+                return fun.apply(this, [].concat(Array.prototype.slice.call(_args7)));
+
+              case 2:
+                return _context7.abrupt('return', _context7.sent);
+
+              case 3:
+              case 'end':
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function newValue(_x13, _x14) {
+        return _ref7.apply(this, arguments);
       }
 
       return newValue;

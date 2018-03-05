@@ -1,6 +1,6 @@
 "use strict";
 
-var _dec, _dec2, _dec3, _dec4, _dec5, _desc, _value, _obj;
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _desc, _value, _obj;
 
 var _decorators = require("./decorators.js");
 
@@ -46,20 +46,37 @@ var debug = require('debug')('user');
 
 var User = {
   find: function find() {
-    return { id: 12, name: 'bukuta' };
+    return {
+      id: 12,
+      name: 'bukuta'
+    };
   },
   create: function create() {
-    return Promise.resolve({ id: 123, name: 'bukuta2' });
+    return Promise.resolve({
+      id: 123,
+      name: 'bukuta2'
+    });
   }
 };
 
-module.exports = (_dec = (0, _decorators.catchError)(), _dec2 = (0, _decorators.response)('json'), _dec3 = (0, _decorators.authorize)('admin'), _dec4 = (0, _decorators.checkParams)({
-  id: {
-    required: true,
-    in: 'body',
-    type: 'integer'
-  }
-}), _dec5 = (0, _decorators.findResource)(User), (_obj = {
+module.exports = (_dec = (0, _decorators.catchError)(), _dec2 = (0, _decorators.response)('json'), _dec3 = (0, _decorators.authorize)('admin'), _dec4 = (0, _decorators.checkParams)([{
+  name: 'q',
+  required: false,
+  in: 'query',
+  type: 'string'
+}]), _dec5 = (0, _decorators.findResource)(User), _dec6 = (0, _decorators.catchError)(), _dec7 = (0, _decorators.response)('json'), _dec8 = (0, _decorators.authorize)('admin'), _dec9 = (0, _decorators.checkParams)([{
+  name: 'payload',
+  required: true,
+  in: 'body',
+  type: 'object'
+}]), _dec10 = createResource(function () {
+  return sails.User;
+}), _dec11 = (0, _decorators.catchError)(), _dec12 = (0, _decorators.response)('json'), _dec13 = (0, _decorators.authorize)('admin'), _dec14 = (0, _decorators.checkParams)([{
+  name: 'userId',
+  required: true,
+  in: 'path',
+  type: 'integer'
+}]), _dec15 = (0, _decorators.findResource)(User), (_obj = {
   fetch: function fetch(req, res) {
     return req._item;
   },
@@ -80,4 +97,4 @@ module.exports = (_dec = (0, _decorators.catchError)(), _dec2 = (0, _decorators.
   destroy: function destroy(req, res) {
     res.status(204).end();
   }
-}, (_applyDecoratedDescriptor(_obj, "fetch", [_dec, _dec2, _dec3, _dec4, _dec5], Object.getOwnPropertyDescriptor(_obj, "fetch"), _obj)), _obj));
+}, (_applyDecoratedDescriptor(_obj, "fetch", [_dec, _dec2, _dec3, _dec4, _dec5], Object.getOwnPropertyDescriptor(_obj, "fetch"), _obj), _applyDecoratedDescriptor(_obj, "create", [_dec6, _dec7, _dec8, _dec9, _dec10], Object.getOwnPropertyDescriptor(_obj, "create"), _obj), _applyDecoratedDescriptor(_obj, "fetchOne", [_dec11, _dec12, _dec13, _dec14, _dec15], Object.getOwnPropertyDescriptor(_obj, "fetchOne"), _obj)), _obj));

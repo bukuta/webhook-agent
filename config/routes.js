@@ -45,11 +45,11 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'get /users': 'UserController.fetch',
-  'post /users': 'UserController.create',
-  'get /users/:userId': 'UserController.fetchOne',
-  'patch /users/:userId': 'UserController.update',
-  'delete /users/:userId': 'UserController.destroy',
+  'get /api/v1/users': 'UserController.fetch',
+  'post /api/v1/users': 'UserController.create',
+  'get /api/v1/users/:userId': 'UserController.fetchOne',
+  'patch /api/v1/users/:userId': 'UserController.update',
+  'delete /api/v1/users/:userId': 'UserController.destroy',
 
 
   'get /api/v1/projects': 'ProjectController.fetch',

@@ -29,7 +29,8 @@
     "waterline": "^0.13.1"
   },
   "scripts": {
-    "build": "babel api-es6 -d api --presets es2015,stage-2 --plugins transform-decorators-legacy,transform-class-properties --require babel-polyfill",
+    "build": "./node_modules/.bin/babel api-es6 -d api --presets es2015,stage-2 --plugins transform-decorators-legacy,transform-class-properties --require babel-polyfill",
+    "watch": "nodemon --exec 'npm run build && npm run start'",
     "debug": "node debug app.js",
     "start": "node app.js --require babel-polyfill"
   },
